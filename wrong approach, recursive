@@ -1,0 +1,13 @@
+class Solution:
+    def canReach(self, arr: List[int], start: int) -> bool:
+        def solve(self,arr,i,n):
+            if arr[i]==0:
+                return True
+            back,forw=False,False
+            if i-arr[i]>=0:
+                back=solve(self,arr,i-arr[i],n)
+            if i+arr[i]<n:
+                forw=solve(self,arr,i+arr[i],n)
+            return back or forw
+        n=len(arr)
+        return solve(self,arr,start,n)
